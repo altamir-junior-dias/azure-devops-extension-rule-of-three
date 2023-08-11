@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="vss-init-index.js"></script>
+    <script type="text/javascript">
+        initializeWidgetConfiguration('RuleOfThreeConfiguration', 'widgets-rule-of-three-configuration');
+    </script>
+    <style>
+        input[type=number] {
+            width: 100%;
+            height: 32px;
+            padding: 3px 5px;
+            position: relative;
+            border: 1px solid;
+            border-color: rgba( 234, 234, 234 , 1 );
+            border-color: rgba( var(--palette-neutral-8,234, 234, 234) , 1 );
+        }
+
+        img {
+            width: calc(50% - 10px);
+        }
+
+        fieldset {
+            /*border-radius: 2px;*/
+            /*margin: 5px 0px 10px 0px !important;*/
+            /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+            /*padding: 5px !important;*/
+            /*width: calc(100% - 10px);*/
+            margin-bottom: 15px !important;
+        }
+        legend {
+            border-radius: 10px;
+            padding: 5px !important;
+            background: #584B4F;
+            color: #FEFEFE !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget-configuration">
+        <div class="single-line-text-input">
+            <label>Title</label>
+            <input id="title" type="text"></input>
+        </div>
+
+        <img src="images/elements.jpg" />
+        <img src="images/formula.jpg" />
+
+        <fieldset>
+            <legend>A element</legend>
+
+            <div class="dropdown">
+                <label>Type</label>
+                <div class="wrapper">
+                    <select id="a-element-type">
+                        <option value="0">Number</option>
+                        <option value="1">Query</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="single-line-text-input" id="a-element-number-area">
+                <label>Number</label>
+                <input id="a-element-number" type="number"></input>
+            </div>
+
+            <div class="dropdown" id="a-element-query-area">
+                <label>Query</label>
+                <div class="wrapper">
+                    <select id="a-element-query">
+                    </select>
+                </div>
+            </div>
+
+            <div class="dropdown" id="a-element-query-type-area">
+                <label>Query Type</label>
+                <div class="wrapper">
+                    <select id="a-element-query-type">
+                        <option value="0">Count of items</option>
+                        <option value="1">Sum of field number</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="dropdown" id="a-element-query-field-number-area">
+                <label>Field number</label>
+                <div class="wrapper">
+                    <select id="a-element-query-field-number">
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>B element</legend>
+
+            <div class="dropdown">
+                <label>Type</label>
+                <div class="wrapper">
+                    <select id="b-element-type">
+                        <option value="0">Number</option>
+                        <option value="1">Query</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="single-line-text-input" id="b-element-number-area">
+                <label>Number</label>
+                <input id="b-element-number" type="number"></input>
+            </div>
+
+            <div class="dropdown" id="b-element-query-area">
+                <label>Query</label>
+                <div class="wrapper">
+                    <select id="b-element-query">
+                    </select>
+                </div>
+            </div>
+
+            <div class="dropdown" id="b-element-query-type-area">
+                <label>Query Type</label>
+                <div class="wrapper">
+                    <select id="b-element-query-type">
+                        <option value="0">Count of items</option>
+                        <option value="1">Sum of field number</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="dropdown" id="b-element-query-field-number-area">
+                <label>Field number</label>
+                <div class="wrapper">
+                    <select id="b-element-query-field-number">
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>C element</legend>
+
+            <div class="dropdown">
+                <label>Type</label>
+                <div class="wrapper">
+                    <select id="c-element-type">
+                        <option value="0">Number</option>
+                        <option value="1">Query</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="single-line-text-input" id="c-element-number-area">
+                <label>Number</label>
+                <input id="c-element-number" type="number"></input>
+            </div>
+
+            <div class="dropdown" id="c-element-query-area">
+                <label>Query</label>
+                <div class="wrapper">
+                    <select id="c-element-query">
+                    </select>
+                </div>
+            </div>
+
+            <div class="dropdown" id="c-element-query-type-area">
+                <label>Query Type</label>
+                <div class="wrapper">
+                    <select id="c-element-query-type">
+                        <option value="0">Count of items</option>
+                        <option value="1">Sum of field number</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="dropdown" id="c-element-query-field-number-area">
+                <label>Field number</label>
+                <div class="wrapper">
+                    <select id="c-element-query-field-number">
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>X element</legend>
+
+            <div class="single-line-text-input">
+                <label>Unit type</label>
+                <input id="x-unit-type" type="text"></input>
+            </div>
+
+            <div class="single-line-text-input">
+                <label>Decimal places</label>
+                <input id="x-decimal-places" type="number"></input>
+            </div>
+        </fieldset>
+    </div>
+</body>
+</html>
