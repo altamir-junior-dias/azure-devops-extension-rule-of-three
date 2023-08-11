@@ -18,6 +18,6 @@ Key features of the **Rule of Three** extension:
 
 With the **Rule of Three** extension, you will have a powerful tool at your disposal to analyze data, identify trends, and make data-driven decisions. Increase the efficiency and productivity of your Azure DevOps project with this essential extension.
 
-![Sample](https://github.com/altamir-junior-dias/azure-devops-extension-rule-of-three-histogram/raw/main/images/sample.jpg)
+![Sample](https://github.com/altamir-junior-dias/azure-devops-extension-rule-of-three/raw/main/images/sample.jpg)
 
-![Configuration](https://github.com/altamir-junior-dias/azure-devops-extension-rule-of-three-histogram/raw/main/images/configuration.jpg)
+![Configuration](https://github.com/altamir-junior-dias/azure-devops-extension-rule-of-three/raw/main/images/configuration.jpg)
