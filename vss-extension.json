@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "RuleOfThreeExtension",
     "publisher": "AltamirJuniorDias",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "name": "Rule of Three",
     "description": "Rule of Three",
     "public": true,

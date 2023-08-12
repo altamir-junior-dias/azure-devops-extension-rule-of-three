@@ -52,16 +52,22 @@
             var bElement = result[1];
             var cElement = result[2];
 
-            if (aElement == 0) {
-                $counter.text('Err /0');
+            if (aElement == 0 && bElement == 0 && cElement == 0) {
+                $counter.text('-');
+                $message.text('');
 
             } else {
-                var xElement = bElement * cElement / aElement;
+                if (aElement == 0) {
+                    $counter.text('Err /0');
 
-                $counter.text(xElement.toFixed(settings.xDecimalPlaces) + settings.xUnitType);
+                } else {
+                    var xElement = bElement * cElement / aElement;
+
+                    $counter.text(xElement.toFixed(settings.xDecimalPlaces) + settings.xUnitType);
+                }
+
+                $message.text(`A = ${aElement}; B = ${bElement}; C = ${cElement}`);
             }
-
-            $message.text(`A = ${aElement}; B = ${bElement}; C = ${cElement}`);
         });
     };
 
