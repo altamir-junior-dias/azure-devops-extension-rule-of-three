@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "RuleOfThreeExtension",
     "publisher": "AltamirJuniorDias",
-    "version": "1.0.3",
+    "version": "1.0.7",
     "name": "Rule of Three",
     "description": "Rule of Three",
     "public": true,
@@ -33,7 +33,7 @@
                 ".RuleOfThreeConfiguration"
             ],
             "properties": {
-                "name": "Rule of hree",
+                "name": "Rule of Three",
                 "description": "Rule of Three",
                 "catalogIconUrl": "images/logo.png",
                 "previewImageUrl": "images/logo.png",

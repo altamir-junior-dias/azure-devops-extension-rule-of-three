@@ -5,9 +5,8 @@
         load: (widgetSettings) => {
             var settings = getSettings(widgetSettings);
 
-            getData(settings);
-
             $title.text(settings.title);
+            getData(settings);
 
             return window.WidgetHelpers.WidgetStatusHelper.Success();
         }
@@ -26,7 +25,7 @@
 
         } else {
             window.AzureDevOpsProxy.getQueryWiql(elementQuery, false).then(query => {
-                window.AzureDevOpsProxy.getItemsFromQuery(query, true).then(items => {
+                window.AzureDevOpsProxy.getItemsFromQuery(query).then(items => {
                     if (elementQueryType == '0') {
                         deferred.resolve(items.length);
 
