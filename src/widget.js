@@ -1,55 +1,19 @@
 (() => {
-    /* PUBLIC */
+    let $counter = $('#counter');
+    let $title = $('#title');
+    let $message = $('#message');
 
-    window.Widget = {
-        load: (widgetSettings) => {
-            var settings = getSettings(widgetSettings);
-
-            $title.text(settings.title);
-            getData(settings);
-
-            return window.WidgetHelpers.WidgetStatusHelper.Success();
-        }
-    };
-
-    /* PRIVATE */
-    var $counter = $('#counter');
-    var $title = $('#title');
-    var $message = $('#message');
-
-    var calculateElement = (elementType, elementNumber, elementQuery, elementQueryType, elementQueryFieldNumber) => {
-        var deferred = $.Deferred();
-
-        if (elementType == '0') {
-            deferred.resolve(parseFloat(elementNumber));
-
-        } else {
-            window.AzureDevOpsProxy.getQueryWiql(elementQuery, false).then(query => {
-                window.AzureDevOpsProxy.getItemsFromQuery(query).then(items => {
-                    if (elementQueryType == '0') {
-                        deferred.resolve(items.length);
-
-                    } else {
-                        deferred.resolve(items.reduce((a, b) => parseFloat(a[elementQueryFieldNumber]) + parseFloat(b[elementQueryFieldNumber]), 0));
-                    }
-                });
-            });
-        }
-
-        return deferred.promise();
-    };
-
-    var getData = (settings) => {
-        var deferreds = [];
+    const getData = (settings) => {
+        let deferreds = [];
 
         deferreds.push(calculateElement(settings.aElementType, settings.aElementNumber, settings.aElementQuery, settings.aElementQueryType, settings.aElementQueryFieldNumber));
         deferreds.push(calculateElement(settings.bElementType, settings.bElementNumber, settings.bElementQuery, settings.bElementQueryType, settings.bElementQueryFieldNumber));
         deferreds.push(calculateElement(settings.cElementType, settings.cElementNumber, settings.cElementQuery, settings.cElementQueryType, settings.cElementQueryFieldNumber));
 
         Promise.all(deferreds).then(result => {
-            var aElement = result[0];
-            var bElement = result[1];
-            var cElement = result[2];
+            let aElement = result[0];
+            let bElement = result[1];
+            let cElement = result[2];
 
             if (aElement == 0 && bElement == 0 && cElement == 0) {
                 $counter.text('-');
@@ -60,7 +24,7 @@
                     $counter.text('Err /0');
 
                 } else {
-                    var xElement = bElement * cElement / aElement;
+                    let xElement = bElement * cElement / aElement;
 
                     $counter.text(xElement.toFixed(settings.xDecimalPlaces) + settings.xUnitType);
                 }
@@ -70,8 +34,8 @@
         });
     };
 
-    var getSettings = (widgetSettings) => {
-        var settings = JSON.parse(widgetSettings.customSettings.data);
+    const getSettings = (widgetSettings) => {
+        let settings = JSON.parse(widgetSettings.customSettings.data);
 
         return {
             title: settings?.title ?? 'Rule of Three',
@@ -97,4 +61,35 @@
             xDecimalPlaces: settings?.xDecimalPlaces ?? '0'
         };
     }; 
+
+    const load = (widgetSettings) => {
+        let settings = getSettings(widgetSettings);
+
+        $title.text(settings.title);
+        getData(settings);
+    };
+
+    const calculateElement = (elementType, elementNumber, elementQuery, elementQueryType, elementQueryFieldNumber) => {
+        let deferred = $.Deferred();
+
+        if (elementType == '0') {
+            deferred.resolve(parseFloat(elementNumber));
+
+        } else {
+            AzureDevOps.Queries.getById(elementQuery).then(query => {
+                AzureDevOps.Queries.getItems(query).then(items => {
+                    if (elementQueryType == '0') {
+                        deferred.resolve(items.length);
+
+                    } else {
+                        deferred.resolve(items.map(item => item[elementQueryFieldNumber]).reduce((a, b) => a + b, 0));
+                    }
+                });
+            });
+        }
+
+        return deferred.promise();
+    };
+
+    window.LoadWidget = load;
 })();
